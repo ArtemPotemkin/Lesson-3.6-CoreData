@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TaksListViewController: UITableViewController {
+final class TaksListViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +20,7 @@ class TaksListViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         let navBarAppearance = UINavigationBarAppearance()
-        navBarAppearance.backgroundColor = UIColor(
-            red: 21/255,
-            green: 101/255,
-            blue: 192/255,
-            alpha: 194/255
-        )
+        navBarAppearance.backgroundColor = UIColor(named: "MilkBlue")
         
         navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.white]
         navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
@@ -43,7 +38,8 @@ class TaksListViewController: UITableViewController {
     }
     
     @objc private func addNewTask() {
-        
+        let taskVC = TaskViewController()
+        present(taskVC, animated: true)
     }
 
 }
