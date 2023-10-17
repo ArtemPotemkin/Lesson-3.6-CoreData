@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D051B85F2AD93F7D00F9B4DC /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D051B85E2AD93F7D00F9B4DC /* TaskViewController.swift */; };
 		D0EC82E72AD80F8E00CF463A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC82E62AD80F8E00CF463A /* AppDelegate.swift */; };
 		D0EC82E92AD80F8E00CF463A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC82E82AD80F8E00CF463A /* SceneDelegate.swift */; };
 		D0EC82EB2AD80F8E00CF463A /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EC82EA2AD80F8E00CF463A /* TaskListViewController.swift */; };
@@ -17,7 +16,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D051B85E2AD93F7D00F9B4DC /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		D0EC82E32AD80F8E00CF463A /* Lesson 3.6 CoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lesson 3.6 CoreData.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0EC82E62AD80F8E00CF463A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0EC82E82AD80F8E00CF463A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,7 +59,6 @@
 				D0EC82E62AD80F8E00CF463A /* AppDelegate.swift */,
 				D0EC82E82AD80F8E00CF463A /* SceneDelegate.swift */,
 				D0EC82EA2AD80F8E00CF463A /* TaskListViewController.swift */,
-				D051B85E2AD93F7D00F9B4DC /* TaskViewController.swift */,
 				D0EC82F22AD80F8F00CF463A /* Assets.xcassets */,
 				D0EC82F42AD80F8F00CF463A /* LaunchScreen.storyboard */,
 				D0EC82F72AD80F8F00CF463A /* Info.plist */,
@@ -142,7 +139,6 @@
 			files = (
 				D0EC82EB2AD80F8E00CF463A /* TaskListViewController.swift in Sources */,
 				D0EC82E72AD80F8E00CF463A /* AppDelegate.swift in Sources */,
-				D051B85F2AD93F7D00F9B4DC /* TaskViewController.swift in Sources */,
 				D0EC82F12AD80F8E00CF463A /* Lesson_3_6_CoreData.xcdatamodeld in Sources */,
 				D0EC82E92AD80F8E00CF463A /* SceneDelegate.swift in Sources */,
 			);
