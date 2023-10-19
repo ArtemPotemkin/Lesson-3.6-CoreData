@@ -56,10 +56,9 @@ class TaskListViewController: UITableViewController {
         } catch let error {
             print(error.localizedDescription )
         }
-
     }
     
-    private func showAlert(whithTitle title: String, andMessage message: String, andText text: String? = nil, indexPath: IndexPath? = nil) {
+    private func showAlert(whithTitle title: String, andMessage message: String, andText text: String? = nil, indexPath: IndexPath? = nil, taska: Task? = nil) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Save", style: .default) { [unowned self] _ in
             guard let task = alert.textFields?.first?.text, !task.isEmpty else { return }
@@ -67,7 +66,8 @@ class TaskListViewController: UITableViewController {
         }
         let editAction = UIAlertAction(title: "Edit", style: .default) { [unowned self] _ in
             guard let task = alert.textFields?.first?.text, !task.isEmpty, task != text else { return }
-            edit(task, indexPath: indexPath! )
+            guard let taska, let indexPath = indexPath else { return }
+            edit(taska: taska, task, indexPath: indexPath)
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
         guard text != nil else {
@@ -91,28 +91,15 @@ class TaskListViewController: UITableViewController {
     private func save(_ taskName: String) {
         StorageManager.shared.create(taskName) { task in
             taskList.append(task)
+            tableView.insertRows(at: [IndexPath(row: taskList.count - 1, section: 0)], with: .automatic)
         }
-       
-        let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
-        tableView.insertRows(at: [cellIndex], with: .automatic)
-        
-       
     }
-    private func edit(_ taskName: String, indexPath: IndexPath) {
+    private func edit(taska: Task, _ taskName: String, indexPath: IndexPath) {
+        StorageManager.shared.edit(taska, newTitle: taskName)
         
-        let task = Task(context: viewContext)
-        task.title = taskName
         taskList[indexPath.row].title = taskName
-        
         tableView.reloadRows(at: [indexPath], with: .automatic)
-       
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }
+        
     }
 }
 
@@ -141,7 +128,9 @@ extension TaskListViewController {
             whithTitle: "Edit task",
             andMessage: "What do you want to change",
             andText: task.title,
-        indexPath: indexPath)
+            indexPath: indexPath,
+            taska: task
+        )
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
