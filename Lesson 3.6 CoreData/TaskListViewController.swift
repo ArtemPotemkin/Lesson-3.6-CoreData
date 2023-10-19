@@ -20,9 +20,6 @@ class TaskListViewController: UITableViewController {
         setupNavigationBar()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
         fetchData()
-        taskList.forEach { task in
-            print(task.title ?? "no title")
-        }
     }
 
     private func setupNavigationBar() {
@@ -92,28 +89,20 @@ class TaskListViewController: UITableViewController {
     }
     
     private func save(_ taskName: String) {
-        let task = Task(context: viewContext)
-        task.title = taskName
-        taskList.append(task)
+        StorageManager.shared.create(taskName) { task in
+            taskList.append(task)
+        }
        
         let cellIndex = IndexPath(row: taskList.count - 1, section: 0)
         tableView.insertRows(at: [cellIndex], with: .automatic)
         
-        if viewContext.hasChanges {
-            do {
-                try viewContext.save()
-            } catch let error {
-                print(error.localizedDescription)
-            }
-        }
+       
     }
     private func edit(_ taskName: String, indexPath: IndexPath) {
+        
         let task = Task(context: viewContext)
         task.title = taskName
         taskList[indexPath.row].title = taskName
-        taskList.forEach { task in
-            print(task.title ?? "no title")
-        }
         
         tableView.reloadRows(at: [indexPath], with: .automatic)
        

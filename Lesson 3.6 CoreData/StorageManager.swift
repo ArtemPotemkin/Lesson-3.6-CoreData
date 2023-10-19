@@ -27,6 +27,12 @@ final class StorageManager {
         })
         return container
     }()
+    func create(_ taskName: String, completion: (Task) -> Void) {
+        let task = Task(context: persistentContainer.viewContext)
+        task.title = taskName
+        completion(task)
+        saveContext()
+    }
     
     func delete(_ task: Task) {
         persistentContainer.viewContext.delete(task)
