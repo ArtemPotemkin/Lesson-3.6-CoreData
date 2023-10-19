@@ -28,6 +28,11 @@ final class StorageManager {
         return container
     }()
     
+    func delete(_ task: Task) {
+        persistentContainer.viewContext.delete(task)
+        saveContext()
+    }
+    
     // MARK: - Core Data Saving support
     
     func saveContext () {
