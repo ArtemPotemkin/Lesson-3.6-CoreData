@@ -9,8 +9,6 @@ import UIKit
 
 class TaskListViewController: UITableViewController {
     
-    private let viewContext = StorageManager.shared.persistentContainer.viewContext
-    
     private let cellID = "Task"
     private var taskList: [Task] = []
 
@@ -49,12 +47,13 @@ class TaskListViewController: UITableViewController {
     }
     
     private func fetchData() {
-        let fetchRequest = Task.fetchRequest()
-        
-        do {
-            taskList = try viewContext.fetch(fetchRequest)
-        } catch let error {
-            print(error.localizedDescription )
+        StorageManager.shared.fetchData { [unowned self] result in
+            switch result {
+            case .success(let tasks):
+                taskList = tasks
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
     

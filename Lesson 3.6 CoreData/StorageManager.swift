@@ -27,6 +27,17 @@ final class StorageManager {
         })
         return container
     }()
+    func fetchData(completion: (Result<[Task], Error>) -> Void) {
+        let fetchRequest = Task.fetchRequest()
+        
+        do {
+            let tasks =  try persistentContainer.viewContext.fetch(fetchRequest)
+            completion(.success(tasks))
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
     func create(_ taskName: String, completion: (Task) -> Void) {
         let task = Task(context: persistentContainer.viewContext)
         task.title = taskName
