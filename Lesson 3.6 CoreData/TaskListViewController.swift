@@ -38,7 +38,6 @@ class TaskListViewController: UITableViewController {
             target: self,
             action: #selector(addNewTask)
         )
-        
         navigationController?.navigationBar.tintColor = .white
     }
     
@@ -84,7 +83,6 @@ class TaskListViewController: UITableViewController {
             textField.text = text
         }
         present(alert, animated: true)
-    
     }
     
     private func save(_ taskName: String) {
@@ -98,7 +96,6 @@ class TaskListViewController: UITableViewController {
         
         taskList[indexPath.row].title = taskName
         tableView.reloadRows(at: [indexPath], with: .automatic)
-        
     }
 }
 

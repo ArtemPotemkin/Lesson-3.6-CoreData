@@ -15,7 +15,6 @@ final class StorageManager {
     private init () {}
     
     // MARK: - Core Data stack
-    
     var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "Lesson_3_6_CoreData")
@@ -27,9 +26,9 @@ final class StorageManager {
         })
         return container
     }()
+    
     func fetchData(completion: (Result<[Task], Error>) -> Void) {
         let fetchRequest = Task.fetchRequest()
-        
         do {
             let tasks =  try persistentContainer.viewContext.fetch(fetchRequest)
             completion(.success(tasks))
@@ -56,7 +55,6 @@ final class StorageManager {
     }
     
     // MARK: - Core Data Saving support
-    
     func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
