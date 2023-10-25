@@ -88,7 +88,7 @@ class TaskListViewController: UITableViewController {
     }
     
     private func save(_ taskName: String) {
-        StorageManager.shared.create(taskName) { task in
+        StorageManager.shared.create(taskName) { [unowned self] task in
             taskList.append(task)
             tableView.insertRows(at: [IndexPath(row: taskList.count - 1, section: 0)], with: .automatic)
         }
