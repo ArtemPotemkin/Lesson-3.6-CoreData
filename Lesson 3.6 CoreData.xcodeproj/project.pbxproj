@@ -39,6 +39,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D029F2502AEBF06200F00FAD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC82E62AD80F8E00CF463A /* AppDelegate.swift */,
+				D0EC82E82AD80F8E00CF463A /* SceneDelegate.swift */,
+				D0EC82F72AD80F8F00CF463A /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		D029F2512AEBF0A600F00FAD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC82EA2AD80F8E00CF463A /* TaskListViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D029F2522AEBF0BA00F00FAD /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				D09A40212AE0033E0005E8CA /* StorageManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D029F2532AEBF0D500F00FAD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC82EF2AD80F8E00CF463A /* Lesson_3_6_CoreData.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D029F2542AEBF0EB00F00FAD /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC82F42AD80F8F00CF463A /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
 		D0EC82DA2AD80F8E00CF463A = {
 			isa = PBXGroup;
 			children = (
@@ -58,14 +100,12 @@
 		D0EC82E52AD80F8E00CF463A /* Lesson 3.6 CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				D0EC82E62AD80F8E00CF463A /* AppDelegate.swift */,
-				D0EC82E82AD80F8E00CF463A /* SceneDelegate.swift */,
-				D0EC82EA2AD80F8E00CF463A /* TaskListViewController.swift */,
-				D09A40212AE0033E0005E8CA /* StorageManager.swift */,
+				D029F2502AEBF06200F00FAD /* App */,
+				D029F2512AEBF0A600F00FAD /* ViewControllers */,
+				D029F2522AEBF0BA00F00FAD /* Services */,
 				D0EC82F22AD80F8F00CF463A /* Assets.xcassets */,
-				D0EC82F42AD80F8F00CF463A /* LaunchScreen.storyboard */,
-				D0EC82F72AD80F8F00CF463A /* Info.plist */,
-				D0EC82EF2AD80F8E00CF463A /* Lesson_3_6_CoreData.xcdatamodeld */,
+				D029F2542AEBF0EB00F00FAD /* StoryBoards */,
+				D029F2532AEBF0D500F00FAD /* Models */,
 			);
 			path = "Lesson 3.6 CoreData";
 			sourceTree = "<group>";
@@ -290,7 +330,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 59RY2LTB65;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Lesson 3.6 CoreData/Info.plist";
+				INFOPLIST_FILE = "Lesson 3.6 CoreData/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
@@ -322,7 +362,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 59RY2LTB65;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Lesson 3.6 CoreData/Info.plist";
+				INFOPLIST_FILE = "Lesson 3.6 CoreData/App/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;

@@ -15,7 +15,7 @@ final class StorageManager {
     private init () {}
     
     // MARK: - Core Data stack
-    var persistentContainer: NSPersistentContainer = {
+    private var persistentContainer: NSPersistentContainer = {
         
         let container = NSPersistentContainer(name: "Lesson_3_6_CoreData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
